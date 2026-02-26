@@ -6,7 +6,7 @@
     <h2 class="text-xl font-bold text-gray-800 mb-1">Masuk ke Akun</h2>
     <p class="text-sm text-gray-500 mb-6">Gunakan NISN dan tanggal lahir untuk login</p>
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login.store') }}">
         @csrf
 
         <x-input

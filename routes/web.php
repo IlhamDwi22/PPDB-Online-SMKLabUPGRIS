@@ -19,9 +19,9 @@ Route::get('/', function () {
 
 // ── Auth Routes ──
 Route::get('/register', fn() => view('auth.register'))->name('register');
-Route::post('/register', fn() => back())->name('register'); // stub
+Route::post('/register', fn() => back())->name('register.store'); // stub
 Route::get('/login', fn() => view('auth.login'))->name('login');
-Route::post('/login', fn() => back())->name('login'); // stub
+Route::post('/login', fn() => back())->name('login.store'); // stub
 Route::post('/logout', fn() => redirect('/login'))->name('logout');
 
 // ── Student Routes ──

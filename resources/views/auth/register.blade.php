@@ -6,7 +6,7 @@
     <h2 class="text-xl font-bold text-gray-800 mb-1">Buat Akun Baru</h2>
     <p class="text-sm text-gray-500 mb-6">Daftarkan diri kamu untuk memulai PPDB Online</p>
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register.store') }}">
         @csrf
 
         <x-input
