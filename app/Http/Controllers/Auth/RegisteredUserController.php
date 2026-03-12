@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -29,17 +31,34 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'username' => ['required', 'string', 'size:10', 'unique:'.User::class],
+            'tgl_lahir' => ['required', 'date'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $roleSiswa = Role::where('nama_role', 'siswa')->first();
+        $user = DB::transaction(function () use ($request, $roleSiswa) {
+
+            $user = User::create([
+                'role_id' => $roleSiswa->id,
+                'name' => $request->name,
+                'username' => $request->username,
+                'password' => Hash::make($request->tgl_lahir),
+            ]);
+
+            Student::create([
+                'user_id' => $user->id,
+                'nama_lengkap' => $request->name,
+                'nisn' => $request->username,
+                'tgl_lahir' => $request->tgl_lahir,
+                'current_step' => 1,
+                'status_verifikasi' => 'pending',
+            ]);
+
+            return $user;
+        });
 
         event(new Registered($user));
 
