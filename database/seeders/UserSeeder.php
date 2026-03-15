@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'role_id' => 4,
             'name' => 'Calon Murid Siswa',
             'username' => '1234567890',
-            'password' => Hash::make('2008-10-05'),
+            'password' => Hash::make('10052008'),
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\Student;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -41,11 +42,12 @@ class RegisteredUserController extends Controller
         $roleSiswa = Role::where('nama_role', 'siswa')->first();
         $user = DB::transaction(function () use ($request, $roleSiswa) {
 
+            $passwordOtomatis = Carbon::parse($request->tgl_lahir)->format('dmY');
             $user = User::create([
                 'role_id' => $roleSiswa->id,
                 'name' => $request->name,
                 'username' => $request->username,
-                'password' => Hash::make($request->tgl_lahir),
+                'password' => Hash::make($passwordOtomatis),
             ]);
 
             Student::create([
