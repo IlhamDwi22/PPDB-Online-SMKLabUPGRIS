@@ -31,8 +31,8 @@
             <div class="inline-flex items-center justify-center w-22 h-22 mx-auto">
                 <img src="{{ asset('images/logo-sma-lab.png') }}" alt="Logo SMA Lab UPGRIS" class="w-24 h-24 object-contain" />
             </div>
-            <h1 class="text-xl font-bold text-white">SMA Laboratorium UPGRIS</h1>
-            <p class="text-primary-200 text-sm mt-1">Penerimaan Peserta Didik Baru</p>
+            <h1 class="text-2xl font-bold text-white">SMA Laboratorium UPGRIS</h1>
+            <p class="text-primary-200 text-md mt-1">Penerimaan Peserta Didik Baru</p>
         </div>
 
         {{-- Card Container --}}
@@ -60,7 +60,7 @@
 
         {{-- Footer --}}
         <p class="text-center text-primary-300 text-xs mt-6">
-            &copy; {{ date('Y') }} SMK Laboratorium UPGRIS. All rights reserved.
+            &copy; {{ date('Y') }} SMA Laboratorium UPGRIS. All rights reserved.
         </p>
     </div>
 

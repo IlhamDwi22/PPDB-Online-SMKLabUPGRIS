@@ -14,7 +14,7 @@
             <div class="flex items-center gap-4">
                 <div class="text-right hidden sm:block">
                     <p class="text-base font-semibold text-gray-800 leading-tight">{{ Auth::user()->name ?? 'Siswa' }}</p>
-                    <p class="text-sm text-gray-500 leading-tight">{{ Auth::user()->nisn ?? '-' }}</p>
+                    <p class="text-sm text-gray-500 leading-tight">{{ Auth::user()->nisn ?? '3344324141' }}</p>
                 </div>
 
                 {{-- Avatar --}}

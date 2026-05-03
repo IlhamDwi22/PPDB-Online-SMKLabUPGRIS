@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 // ── Landing ──
 Route::get('/', function () {
-    return redirect('/login');
+    return view('landing.index');
 });
 
 // ── Auth Routes ──

@@ -51,7 +51,7 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18pt;
             font-weight: bold;
-            color: #1a3a7a;
+            color: #0D57A4;
         }
         .kop-text .line3 {
             font-size: 10pt;
