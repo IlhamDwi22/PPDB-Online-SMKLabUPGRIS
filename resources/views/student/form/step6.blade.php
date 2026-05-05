@@ -165,11 +165,11 @@
         @php
             $docList = [
                 'pas_foto' => 'Pas Foto',
-                'kk' => 'Kartu Keluarga',
-                'akta' => 'Akta Kelahiran',
-                'rapor' => 'Rapor',
-                'tka' => 'Sertifikat TKA',
-                'ijazah' => 'SKL / Ijazah',
+                // 'kk' => 'Kartu Keluarga',
+                // 'akta' => 'Akta Kelahiran',
+                // 'rapor' => 'Rapor',
+                // 'tka' => 'Sertifikat TKA',
+                // 'ijazah' => 'SKL / Ijazah',
             ];
         @endphp
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
